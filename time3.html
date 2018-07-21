@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+<script>
+ function CountDown(duration, display) {
+            if (!isNaN(duration)) {
+                var timer = duration, minutes, seconds,timer1;
+                
+              var interVal=  setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                   timer1= $(display).html("<b>" + minutes + "m : " + seconds + "s" + "</b>");
+                    
+					 // window.location.href = "check.php?name=" + timer1;
+					
+					if (--timer < 0) {
+                        timer = duration;
+						 $('#display').html('Times up!');
+     $('form') .submit();
+            clearInterval(interval);
+                     
+                    }
+                    },1000);
+            }
+    
+    return new Date();
+}
+
+jQuery(function($) {
+    s = 10;
+    var Minutes = 60 * s,
+        display = $('#time');
+        
+    var startDate = startTimer(Minutes, display);
+    
+    $('button').click(function() {
+    	var now = new Date();
+        var seconds = (now.getTime() - startDate.getTime()) / 1000;
+        $('#runtimes').append('<p>' + seconds + '</p>');
+    })
+});</script>
+
+<style>
+
+#display,runtimes{
+	text-align:right;
+}
+</style>
+</head>
+<body>
+
+<div id="display">
+<script type="text/javascript">
+    CountDown(1200,$('#display'));
+</script>
+</div>
+<div id="runtimes">
+<script type="text/javascript">
+   $('#runtimes');
+</script>
+</div>
+
+
+
+<div class="col-md-4">
+    <div class="test">Time Left <span id="time"></span>min</div>
+</div>
+
+<form name="frmRegistration" id="registration-form" method="post">
+    <input class="btnAction" type="submit" name="finish" id="finish" value="Finish" onclick="clearInterval(interval)" style="display:none;">
+</form>
+
+<button>Get run time</button>
+
+<div id="runtimes"></div>
+</body>
+</html>
+

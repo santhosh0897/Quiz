@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><h1>JAVASCRIPT</h1>
+<body>
+<div style="font-weight:bold" id="quiz-time-left"></div>
+<script type="text/javascript">
+var total_sec=60*10;
+var c_min=parseInt(total_sec/60);
+var c_sec=parseInt(total_sec%60);
+function CheckTime(){
+
+document.getElementById("quiz-time-left").innerHTML='Time Left:'
++ c_min +'minutes'+ c_sec +'seconds';
+if(total_sec<=0){
+
+setTimeout('document.quiz.submit()',1);
+else{
+total_sec=total_sec-1;
+c_min=parseInt(total_sec/60);
+c_sec=parseInt(total_sec%60);
+setTimeout("CheckTime()",1000);
+}
+}
+setTimeout("CheckTime()",1000);
+</script>
+<form method="post" name="quiz" action="check.php"></form>
+</body>
+</html>

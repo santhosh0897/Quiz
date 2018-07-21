@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input[type=text],textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+</style>
+
+<body>
+<h2><center>Question Form<center></h2><br></br>
+<form action="Questions.php" method="POST">
+
+<label><b><center>QuestionId</b></center></label><br></br>
+    <input type="text" placeholder="Enter QuestionId" name="Qid" required><br></br>
+
+<label><b><center>Question</b></center></label><br>
+<textarea rows="4" cols="187" name="Question" placeholder="Enter your question" required></textarea><br>
+	
+	<label><b><center>Answerid</b></center></label><br></br>
+    <input type="text" placeholder="Enter QuestionId" name="ans_id" required><br></br>
+	
+	
+	
+	 <button type="submit" name="submit" class="signupbtn">Add</button>
+	
+	</form>
+	
+	
+	
+</body>
+</head>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<?php
+require_once("dbcon.php");
+
+
+echo "<table border='1'>
+<tr>
+<th>Question</th>
+</tr>";
+$result=mysqli_query($con,"SELECT * FROM question");
+while ($row = mysql_fetch_array($result)) {
+echo "<tr>";
+echo "<td>" .$row['Question']."</td>";
+echo "</tr>";  
+  
+}
+echo "</table>";
+mysqli_close($con);
+?> 
+</body>
+</head>
+</html>
+
+
